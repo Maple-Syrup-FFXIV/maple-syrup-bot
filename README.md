@@ -1,1 +1,1 @@
-# maple-syrup-bot
+maple-syrup-bot
