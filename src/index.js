@@ -5,7 +5,7 @@ const config = require('../slappey.json');
 const client = new Client();
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/mapledashboard', {
+mongoose.connect('mongodb+srv://RickChinois:alahuakbard1977@maplecluster.2sn3v.mongodb.net/mapledashboard?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
