@@ -1,13 +1,13 @@
-class Commands {
-    constructor(){
-        this._data = [];
+class Prefix {
+    constructor() {
+        this._data = '';
     }
 
-    get(){
+    get() {
         return this._data;
     }
 
-    set(value){
+    set(value) {
         this._data = value;
     }
 }
@@ -15,7 +15,7 @@ class Commands {
 class Singleton {
     constructor() {
         if (!Singleton.instance) {
-            Singleton.instance = new Commands();
+            Singleton.instance = new Prefix();
         }
     }
 

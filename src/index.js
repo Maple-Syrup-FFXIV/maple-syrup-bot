@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const commands = require('./data/commands');
 
 var listCommands = new commands().getInstance();
-mongoose.connect('Replace url here', {
+mongoose.connect('Add DB url here', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

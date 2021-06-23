@@ -1,6 +1,7 @@
 const BaseCommand = require('../../utils/structures/BaseCommand');
 const discord = require('discord.js');
 const Commands = require('../../data/commands');
+const Prefix = require('../../data/prefix');
 
 module.exports = class HelpCommand extends BaseCommand {
   constructor() {
@@ -10,9 +11,13 @@ module.exports = class HelpCommand extends BaseCommand {
   run(client, message, args) {
     const data = [];
     const commands = new Commands().getInstance();
+    const prefix = new Prefix().getInstance();
 
     data.push('Here\'s a list of commands');
-    data.push(commands.get());
+    commands.get().forEach(element => {
+      data.push(prefix.get() + element);
+    });
+    
 
     return message.author.send(data, {split: true})
     .then(() => {
