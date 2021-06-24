@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const commands = require('./data/commands');
 
 var listCommands = new commands().getInstance();
-mongoose.connect('insert DB url here', {
+mongoose.connect('mongodb+srv://RickChinois:alahuakbard1977@maplecluster.2sn3v.mongodb.net/mapledashboard?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
