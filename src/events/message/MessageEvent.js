@@ -1,5 +1,8 @@
 const BaseEvent = require('../../utils/structures/BaseEvent');
 const GuildConfig = require('../../database/schemas/GuildConfig');
+const Prefix = require('../../data/prefix');
+
+const aPrefix = new Prefix().getInstance();
 module.exports = class MessageEvent extends BaseEvent {
   constructor() {
     super('message');
@@ -16,6 +19,7 @@ module.exports = class MessageEvent extends BaseEvent {
       .split(/\s+/);
       const command = client.commands.get(cmdName);
       if (command) {
+        aPrefix.set(prefix);
         command.run(client, message, cmdArgs);
       }
     }

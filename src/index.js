@@ -4,8 +4,10 @@ const { registerCommands, registerEvents } = require('./utils/registry');
 const config = require('../slappey.json');
 const client = new Client();
 const mongoose = require('mongoose');
+const commands = require('./data/commands');
 
-mongoose.connect('mongodb://localhost/mapledashboard', {
+var listCommands = new commands().getInstance();
+mongoose.connect('insert DB url here', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -15,6 +17,8 @@ mongoose.connect('mongodb://localhost/mapledashboard', {
   client.prefix = config.prefix;
   await registerCommands(client, '../commands');
   await registerEvents(client, '../events');
+
+  listCommands.set(Array.from(client.commands.keys()));
   await client.login(config.token);
 })();
 
