@@ -1,4 +1,8 @@
 const BaseCommand = require('../../utils/structures/BaseCommand');
+const Senko = require('../../data/senko');
+const discord = require('discord.js');
+
+const senko = new Senko();
 
 module.exports = class SenkoCommand extends BaseCommand {
   constructor() {
@@ -6,6 +10,13 @@ module.exports = class SenkoCommand extends BaseCommand {
   }
 
   run(client, message, args) {
-    message.channel.send('senko command works');
+    
+    const embed = new discord.MessageEmbed()
+    .setColor('#FFFF00')
+    .setImage(senko.getRandom())
+    .setFooter('Powered by files.oki.moe')
+    .setTimestamp();
+
+    message.channel.send(embed);
   }
 }
