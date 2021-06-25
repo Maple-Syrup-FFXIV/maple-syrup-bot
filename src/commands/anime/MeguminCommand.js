@@ -1,18 +1,18 @@
 const BaseCommand = require('../../utils/structures/BaseCommand');
-const Senko = require('../../data/senko');
+const Megumin = require('../../data/megumin');
 const discord = require('discord.js');
 
-const senko = new Senko();
+const megumin = new Megumin();
 
-module.exports = class SenkoCommand extends BaseCommand {
+module.exports = class MeguminCommand extends BaseCommand {
   constructor() {
-    super('senko', 'anime', []);
+    super('megumin', 'anime', []);
   }
 
   run(client, message, args) {
     const embed = new discord.MessageEmbed()
     .setColor('#FFFF00')
-    .setImage(senko.getRandom())
+    .setImage(megumin.getRandom())
     .setFooter('Powered by files.oki.moe')
     .setTimestamp();
 
