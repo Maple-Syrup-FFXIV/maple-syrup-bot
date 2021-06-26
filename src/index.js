@@ -7,14 +7,14 @@ const mongoose = require('mongoose');
 const commands = require('./data/commands');
 
 var listCommands = new commands().getInstance();
-mongoose.connect('', {
+mongoose.connect('mongodb+srv://pythagoras:35EwU75uGF6BGXVl@maplecluster.2sn3v.mongodb.net/mapledashboard?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 (async () => {
   client.commands = new Map();
   client.events = new Map();
-  client.prefix = config.prefix;
+  //client.prefix = config.prefix;
   await registerCommands(client, '../commands');
   await registerEvents(client, '../events');
 
